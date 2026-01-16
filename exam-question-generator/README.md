@@ -1,60 +1,145 @@
-# 🧠 Exam Question Generator
+# Smart Study Assistant – Exam Question Generator
 
-An AI-powered tool that automatically generates **exam-style questions** from lecture text using Natural Language Processing (NLP).
+An intelligent study assistant that automatically generates exam-style questions from lecture text using Natural Language Processing (NLP).
 
-This project is part of the **Smart Study Assistant** system — a collection of intelligent tools designed to help students study more effectively.
-
----
-
-## ✨ Features
-
-✔ Extracts **important keywords** from lecture text  
-✔ Generates **Multiple Choice Questions (MCQ)** with varied templates  
-✔ Creates **True / False** questions directly from real sentences in the text  
-✔ Produces **Short Answer** questions for deeper understanding  
-✔ Handles both **short and long** lecture content gracefully  
+This tool is designed to help students move beyond memorization by generating questions that test understanding, reasoning, and conceptual clarity.
 
 ---
 
-## 🧠 How It Works
+## Why this project?
 
-1. Cleans and processes the input text  
-2. Removes common stop-words  
-3. Extracts the most frequent and meaningful keywords  
-4. Generates:
-   - MCQ questions  
-   - True / False questions based on actual lecture sentences  
-   - Short Answer questions  
+Students often rely on rereading notes or memorizing definitions when preparing for exams.  
+However, effective studying requires **active recall** and **conceptual understanding**.
 
-This design ensures the questions are **context-aware**, educational, and realistic.
+This project addresses that problem by transforming raw lecture text into meaningful practice questions, encouraging deeper thinking rather than rote memorization.
 
 ---
 
-## 🧪 Example Output
+## What does it generate?
 
-> **Input Lecture Text**
-> ```
-> Machine learning is a branch of artificial intelligence that focuses on building systems that learn from data.
-> ```
+The assistant analyzes lecture text and generates different types of questions:
 
-> **Generated Output**
-> - Keywords  
-> - MCQ Questions  
-> - True / False Questions  
-> - Short Answer Prompts  
+- **Definition-based questions**  
+  Generated only when a concept is explicitly defined in the text.
 
----
+- **Contextual multiple-choice questions (MCQs)**  
+  Focused on understanding concepts within real sentences, not isolated keywords.
 
-## 🛠 Technologies Used
+- **True / False questions**  
+  Designed to test reasoning by subtly modifying factual statements.
 
-- Python  
-- Regular Expressions (`re`)  
-- Natural Language Processing Fundamentals  
-- Frequency Analysis (`Counter`)  
+- **Short-answer questions**  
+  Encourage explanation and reflection rather than one-word answers.
 
 ---
 
-## 🚀 How to Run
+## What makes it intelligent?
+
+- Filters out generic terms such as *system*, *application*, and *process*
+- Extracts only meaningful, domain-relevant concepts
+- Detects explicit definitions using linguistic patterns
+- Generates questions based on **context**, not keyword matching
+- Avoids definition questions when no valid definition exists
+- Uses NLP analysis (spaCy) instead of hardcoded rules
+
+---
+
+## Example
+
+### Input
+```text
+Artificial intelligence is a field of study that focuses on building systems capable of performing tasks that normally require human intelligence.
+```
+
+### Generated Question (Easy Mode)
+
+```text
+Which concept best fits the following statement?
+
+"Artificial intelligence is a field of study that focuses on building systems capable of performing tasks that normally require human intelligence."
+
+Options:
+- Machine learning
+- Artificial intelligence
+- Decision making
+- Neural networks
+```
+
+### Generated Questions (Hard Mode)
+
+```text
+True / False:
+Machine learning is a subset of artificial intelligence. (True)
+
+Short Answer:
+Explain the role of neural networks in artificial intelligence systems.
+```
+
+---
+
+## How it works
+
+1. The input lecture text is processed using spaCy NLP
+2. Key concepts are extracted using linguistic and contextual rules
+3. Explicit definitions are detected using strict patterns
+4. Question types are generated based on the selected difficulty level
+5. Output is displayed through a command-line interface
+
+---
+
+## How to run
+
+### Requirements
+
+* Python 3.9+
+* spaCy
+* spaCy English model (`en_core_web_sm`)
+
+### Installation
+
+```bash
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+```
+
+### Run the program
 
 ```bash
 python main.py
+```
+
+---
+
+## Difficulty modes
+
+* **Easy**
+  Generates contextual multiple-choice questions focused on understanding.
+
+* **Hard**
+  Generates True/False questions and short-answer questions that require reasoning and explanation.
+
+---
+
+## Tech Stack
+
+* Python
+* spaCy (Natural Language Processing)
+* Rule-based linguistic analysis
+* Command-line interface (CLI)
+
+---
+
+## Future Improvements
+
+* Medium difficulty level
+* Question quality scoring
+* Web-based interface
+* Export questions to PDF or quiz platforms
+* Support for additional academic domains
+
+---
+
+## Author
+
+Developed as an academic NLP project focused on improving study effectiveness through intelligent question generation.
+
